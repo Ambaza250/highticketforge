@@ -1,200 +1,436 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Offer Builder | High Ticket Forge</title>
-  <meta name="description" content="Build your high-ticket offer in 8 questions with High Ticket Forge." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            navy: {
-              950: '#06101f',
-              900: '#091a33',
-              800: '#10284a',
-              700: '#173862'
-            },
-            forge: {
-              gold: '#FFD700',
-              gold2: '#E7B500',
-              cream: '#FFF8D7'
-            }
-          },
-          boxShadow: {
-            glow: '0 24px 80px rgba(255, 215, 0, 0.16)',
-            premium: '0 24px 80px rgba(6, 16, 31, 0.14)',
-            panel: '0 18px 70px rgba(9, 26, 51, 0.12)'
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your High-Ticket Offer • High Ticket Forge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+        
+        :root {
+            --navy: #0A1428;
+            --gold: #D4AF37;
         }
-      }
-    }
-  </script>
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
 
-  <style>
-    :root {
-      color-scheme: light;
-    }
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+        }
 
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background:
-        radial-gradient(circle at 50% -16%, rgba(255, 215, 0, 0.16), transparent 28%),
-        linear-gradient(180deg, #ffffff 0%, #f6f8fb 45%, #ffffff 100%);
-      color: #06101f;
-    }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .navy-panel {
-      background:
-        linear-gradient(135deg, rgba(255, 215, 0, 0.15), transparent 36%),
-        linear-gradient(180deg, #091a33 0%, #06101f 100%);
-    }
-
-    .soft-grid {
-      background-image:
-        linear-gradient(rgba(9, 26, 51, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(9, 26, 51, 0.055) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
-    }
-
-    .fade-up {
-      animation: fadeUp 0.75s ease both;
-    }
-
-    .question-enter {
-      animation: questionIn 0.34s ease both;
-    }
-
-    .option-selected {
-      border-color: #E7B500;
-      background: #FFF8D7;
-      box-shadow: 0 16px 45px rgba(231, 181, 0, 0.16);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes questionIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px) scale(0.99);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-  </style>
+        .progress-bar {
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
-
-<body class="antialiased">
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 glass">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
-      <a href="index.html" class="flex items-center gap-3">
-        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-navy-950 text-lg font-black text-forge-gold shadow-glow">H</span>
-        <span class="text-lg font-extrabold tracking-tight text-navy-950">High Ticket Forge</span>
-      </a>
-
-      <div class="hidden items-center gap-8 lg:flex">
-        <a href="index.html#home" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Home</a>
-        <a href="index.html#how" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">How it Works</a>
-        <a href="index.html#features" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Features</a>
-        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Pricing</a>
-      </div>
-
-      <div class="hidden items-center gap-3 lg:flex">
-        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg bg-navy-950 px-5 py-3 text-sm font-extrabold text-white shadow-premium transition hover:-translate-y-0.5 hover:bg-navy-800">
-          Get Access
-        </a>
-      </div>
-
-      <button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-navy-950 lg:hidden" aria-label="Open menu">
-        <span class="h-0.5 w-5 bg-current before:block before:h-0.5 before:w-5 before:-translate-y-2 before:bg-current before:content-[''] after:block after:h-0.5 after:w-5 after:translate-y-1.5 after:bg-current after:content-['']"></span>
-      </button>
+<body class="tail-container bg-[#0A1428] text-white min-h-screen">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-[#0A1428]/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-xl flex items-center justify-center">
+                    <span class="text-[#0A1428] font-bold text-xl">⚒️</span>
+                </div>
+                <div>
+                    <span class="heading-font text-2xl font-semibold tracking-tight">High Ticket Forge</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-8 text-sm">
+                <a href="#" onclick="exitBuilder()" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Exit Builder</span>
+                </a>
+            </div>
+        </div>
     </nav>
 
-    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-5 py-4 lg:hidden">
-      <div class="mx-auto flex max-w-7xl flex-col gap-3">
-        <a href="index.html#home" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Home</a>
-        <a href="index.html#how" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">How it Works</a>
-        <a href="index.html#features" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Features</a>
-        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Pricing</a>
-        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg bg-navy-950 px-4 py-3 text-center text-sm font-extrabold text-white">Get Access</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="relative overflow-hidden">
-    <div class="soft-grid pointer-events-none absolute inset-x-0 top-0 h-[560px]"></div>
-
-    <section class="relative px-5 pb-16 pt-12 sm:pt-16 lg:px-8">
-      <div class="mx-auto max-w-5xl text-center fade-up">
-        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-forge-gold/40 bg-forge-cream px-4 py-2 text-sm font-extrabold text-navy-950">
-          <span class="h-2 w-2 rounded-full bg-forge-gold"></span>
-          AI-powered offer blueprint builder
+    <div class="max-w-3xl mx-auto px-6 py-12">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-font text-5xl font-semibold tracking-tighter mb-3">
+                Build Your High-Ticket Offer
+            </h1>
+            <p class="text-xl text-gray-300">
+                Answer these 8 questions and watch the AI forge your <span class="text-amber-400">$497–$5,000</span> offer live
+            </p>
         </div>
 
-        <h1 class="mx-auto max-w-4xl text-4xl font-black tracking-tight text-navy-950 sm:text-5xl lg:text-6xl">
-          Build Your High-Ticket Offer in 8 Questions
-        </h1>
-
-        <p class="mx-auto mt-5 max-w-2xl text-lg font-medium leading-8 text-slate-600 sm:text-xl">
-          Answer these questions and watch the AI build your $497-$5k offer live
-        </p>
-      </div>
-
-      <div class="mx-auto mt-10 max-w-5xl">
-        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-panel">
-          <div class="border-b border-slate-200 bg-white px-5 py-5 sm:px-7">
-            <div class="mb-3 flex items-center justify-between gap-4">
-              <p id="stepLabel" class="text-sm font-black uppercase tracking-[0.18em] text-navy-950">1/8</p>
-              <p id="stepHint" class="text-sm font-extrabold text-slate-500">Niche</p>
+        <!-- Progress -->
+        <div class="mb-10">
+            <div class="flex justify-between text-xs text-gray-400 mb-2 px-1">
+                <div id="progress-text">Question <span id="current-step">1</span>/8</div>
+                <div id="progress-percent">12.5%</div>
             </div>
-            <div class="h-2 overflow-hidden rounded-full bg-slate-100">
-              <div id="progressBar" class="h-full w-[12.5%] rounded-full bg-forge-gold transition-all duration-500 ease-out"></div>
+            <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div id="progress-bar" class="progress-bar h-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full w-1/8"></div>
             </div>
-          </div>
+        </div>
 
-          <div class="grid lg:grid-cols-[1fr_360px]">
-            <section class="min-h-[500px] p-5 sm:p-8 lg:p-10">
-              <div id="questionShell" class="question-enter">
-                <p id="questionKicker" class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-forge-gold2">Question 1</p>
-                <h2 id="questionTitle" class="text-2xl font-black tracking-tight text-navy-950 sm:text-3xl"></h2>
-                <p id="questionHelp" class="mt-3 max-w-2xl text-base font-medium leading-7 text-slate-600"></p>
+        <!-- Question Container -->
+        <div id="question-container" class="glass border border-white/10 rounded-3xl p-10 min-h-[420px] relative">
+            
+            <!-- Questions will be injected here by JS -->
+        </div>
 
-                <div id="inputArea" class="mt-8"></div>
-              </div>
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-8 px-4">
+            <button onclick="goBack()" id="back-btn"
+                    class="flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/20 hover:border-white/40 transition-all text-gray-300 hover:text-white disabled:opacity-30">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+            
+            <button onclick="goNext()" id="next-btn"
+                    class="flex items-center gap-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-[#0A1428] font-semibold px-10 py-4 rounded-2xl hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="next-text">Continue</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
 
-              <div class="mt-10 flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <button id="backBtn" type="button" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-extrabold text-navy-950 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40">
-                  Back
-                </button>
+    <!-- Paywall Screen (hidden initially) -->
+    <div id="paywall-screen" class="hidden fixed inset-0 bg-[#0A1428]/95 backdrop-blur-xl z-50 flex items-center justify-center">
+        <div class="max-w-lg mx-auto text-center px-6">
+            <div class="mb-8 inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-6 py-3 rounded-2xl">
+                <i class="fa-solid fa-check-circle text-2xl"></i>
+                <span class="font-medium">Offer Successfully Forged</span>
+            </div>
+            
+            <h2 class="heading-font text-5xl font-bold tracking-tighter mb-6">
+                Your Premium High-Ticket Offer<br>Is Ready
+            </h2>
+            
+            <div class="glass border border-white/10 rounded-3xl p-8 mb-10 text-left">
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="text-amber-400 text-2xl">📋</div>
+                        <div>
+                            <div class="font-semibold">Proprietary Offer Name</div>
+                            <div id="paywall-offer-name" class="text-gray-400">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-amber-400 text-2xl">🏗️</div>
+                        <div>
+                            <div class="font-semibold">Complete 3-Day Mastermind Structure</div>
+                            <div class="text-gray-400">Day-by-day agenda + deliverables</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-amber-400 text-2xl">📝</div>
+                        <div>
+                            <div class="font-semibold">70-20-10 Sales Page Copy</div>
+                            <div class="text-gray-400">Ready-to-use high-converting copy</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-amber-400 text-2xl">💰</div>
+                        <div>
+                            <div class="font-semibold">Offer Stack + LTV Calculator</div>
+                            <div class="text-gray-400">Maximize lifetime value</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <button id="nextBtn" type="button" disabled class="inline-flex items-center justify-center rounded-xl bg-navy-950 px-7 py-3 text-sm font-extrabold text-white shadow-premium transition hover:-translate-y-0.5 hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0">
-                  Next
-                </button>
+            <button onclick="unlockOffer()" 
+                    class="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-[#0A1428] font-bold text-xl py-7 rounded-3xl hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-2xl shadow-amber-500/30">
+                <span>Unlock My Full Offer Blueprint</span>
+                <span class="text-2xl">$69</span>
+            </button>
+            
+            <p class="text-xs text-gray-500 mt-6">One-time payment • Instant access • 30-day guarantee</p>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            // Already configured via CDN
+        }
+
+        // Data
+        let currentStep = 1;
+        let answers = {};
+
+        const questions = [
+            {
+                id: 1,
+                title: "What is your main niche or audience?",
+                type: "text",
+                placeholder: "e.g. Fitness coaches, LinkedIn personal branding, Faceless YouTube creators...",
+                suggestions: ["Fitness Coaches", "LinkedIn Personal Branding", "Faceless YouTube", "High-Ticket Sales Trainers", "E-commerce Brand Owners", "Real Estate Agents", "Online Course Creators"]
+            },
+            {
+                id: 2,
+                title: "What is the #1 painful problem your audience wants to solve right now?",
+                type: "textarea",
+                placeholder: "Describe their biggest struggle..."
+            },
+            {
+                id: 3,
+                title: "What specific result do they want?",
+                type: "text",
+                placeholder: "e.g. $10k/month, booked-out calendar, 6-figure launches..."
+            },
+            {
+                id: 4,
+                title: "How big is your audience / email list?",
+                type: "select",
+                options: ["Less than 5k", "5k – 20k", "20k – 50k", "50k+"]
+            },
+            {
+                id: 5,
+                title: "How much would your dream client happily pay for a proven solution?",
+                type: "price",
+                options: ["$497", "$997", "$1,997", "$4,997"]
+            },
+            {
+                id: 6,
+                title: "What offer format excites you most?",
+                type: "format",
+                options: [
+                    {value: "3day", label: "3-Day Live Mastermind", icon: "🔥"},
+                    {value: "group", label: "Group Coaching Program", icon: "👥"},
+                    {value: "1on1", label: "1-on-1 High-Ticket Mentorship", icon: "🎯"}
+                ]
+            },
+            {
+                id: 7,
+                title: "What makes you different? (Your secret sauce)",
+                type: "textarea",
+                placeholder: "Your unique experience, methodology, or personality..."
+            },
+            {
+                id: 8,
+                title: "Give your offer a working name",
+                type: "name",
+                placeholder: "e.g. The 7-Figure Forge Mastermind"
+            }
+        ];
+
+        // Render current question
+        function renderQuestion() {
+            const container = document.getElementById('question-container');
+            const q = questions[currentStep - 1];
+            
+            let html = `
+                <div class="step-transition opacity-100">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center text-xl">
+                            ${currentStep}
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-semibold heading-font tracking-tight">${q.title}</h2>
+                        </div>
+                    </div>
+            `;
+
+            if (q.type === "text") {
+                html += `
+                    <input type="text" id="input-${q.id}" 
+                           class="w-full bg-white/5 border border-white/20 focus:border-amber-400 rounded-2xl px-6 py-5 text-lg outline-none transition-all"
+                           placeholder="${q.placeholder}" onkeyup="updateAnswer(${q.id}, this.value)">
+                `;
+                
+                if (q.suggestions) {
+                    html += `<div class="mt-6"><p class="text-xs text-gray-400 mb-3">Popular choices:</p><div class="flex flex-wrap gap-2">`;
+                    q.suggestions.forEach(sug => {
+                        html += `<button onclick="quickSelect(${q.id}, '${sug}')" 
+                                       class="text-sm px-5 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all">${sug}</button>`;
+                    });
+                    html += `</div></div>`;
+                }
+            } 
+            else if (q.type === "textarea") {
+                html += `
+                    <textarea id="input-${q.id}" rows="6"
+                              class="w-full bg-white/5 border border-white/20 focus:border-amber-400 rounded-3xl px-6 py-5 text-lg outline-none transition-all resize-none"
+                              placeholder="${q.placeholder}" onkeyup="updateAnswer(${q.id}, this.value)"></textarea>
+                `;
+            } 
+            else if (q.type === "select") {
+                html += `<div class="grid grid-cols-2 gap-4">`;
+                q.options.forEach(opt => {
+                    html += `
+                        <button onclick="selectOption(${q.id}, '${opt}')" 
+                                id="opt-${q.id}-${opt}"
+                                class="option-btn h-28 border border-white/10 hover:border-amber-400/50 rounded-3xl flex flex-col items-center justify-center gap-2 transition-all">
+                            <span class="text-xl">${opt}</span>
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+            } 
+            else if (q.type === "price") {
+                html += `<div class="grid grid-cols-2 gap-4">`;
+                q.options.forEach(price => {
+                    html += `
+                        <button onclick="selectOption(${q.id}, '${price}')" 
+                                id="opt-${q.id}-${price}"
+                                class="option-btn h-28 border border-white/10 hover:border-amber-400/50 rounded-3xl flex flex-col items-center justify-center gap-2 transition-all">
+                            <span class="text-3xl font-semibold">${price}</span>
+                            <span class="text-xs text-gray-400">One-time</span>
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+            } 
+            else if (q.type === "format") {
+                html += `<div class="grid grid-cols-1 gap-4">`;
+                q.options.forEach(opt => {
+                    html += `
+                        <button onclick="selectOption(${q.id}, '${opt.value}')" 
+                                id="opt-${q.id}-${opt.value}"
+                                class="option-btn flex items-center gap-6 border border-white/10 hover:border-amber-400/50 rounded-3xl p-6 transition-all">
+                            <div class="text-4xl w-12">${opt.icon}</div>
+                            <div class="text-left">
+                                <div class="font-semibold text-xl">${opt.label}</div>
+                            </div>
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+            } 
+            else if (q.type === "name") {
+                html += `
+                    <div class="flex gap-4">
+                        <input type="text" id="input-${q.id}" 
+                               class="flex-1 bg-white/5 border border-white/20 focus:border-amber-400 rounded-2xl px-6 py-5 text-lg outline-none transition-all"
+                               placeholder="${q.placeholder}" onkeyup="updateAnswer(${q.id}, this.value)">
+                        <button onclick="generateName()" 
+                                class="px-8 bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl font-medium whitespace-nowrap">
+                            ✨ Generate
+                        </button>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+
+            // Pre-fill if answer exists
+            if (answers[q.id]) {
+                const input = document.getElementById(`input-${q.id}`);
+                if (input) input.value = answers[q.id];
+            }
+
+            updateButtons();
+        }
+
+        function updateAnswer(id, value) {
+            answers[id] = value;
+            updateButtons();
+        }
+
+        function quickSelect(id, value) {
+            answers[id] = value;
+            const input = document.getElementById(`input-${id}`);
+            if (input) input.value = value;
+            updateButtons();
+        }
+
+        function selectOption(id, value) {
+            answers[id] = value;
+            
+            // Highlight selected
+            document.querySelectorAll(`.option-btn`).forEach(btn => {
+                if (btn.id === `opt-${id}-${value}`) {
+                    btn.classList.add('!border-amber-400', 'bg-amber-400/10');
+                } else {
+                    btn.classList.remove('!border-amber-400', 'bg-amber-400/10');
+                }
+            });
+            
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const nextBtn = document.getElementById('next-btn');
+            const hasAnswer = !!answers[currentStep];
+            
+            nextBtn.disabled = !hasAnswer;
+        }
+
+        function updateProgress() {
+            const percent = ((currentStep - 1) / 8) * 100;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('current-step').textContent = currentStep;
+            document.getElementById('progress-percent').textContent = `${Math.round(percent)}%`;
+        }
+
+        function goNext() {
+            if (!answers[currentStep]) return;
+            
+            if (currentStep < 8) {
+                currentStep++;
+                renderQuestion();
+                updateProgress();
+            } else {
+                showPaywall();
+            }
+        }
+
+        function goBack() {
+            if (currentStep > 1) {
+                currentStep--;
+                renderQuestion();
+                updateProgress();
+            }
+        }
+
+        function generateName() {
+            const niche = answers[1] || "Your Niche";
+            const result = answers[3] || "Results";
+            
+            const suggestions = [
+                `${niche} Accelerator`,
+                `The ${result} Forge`,
+                `${niche} Empire Mastermind`,
+                `7-Figure ${niche} Blueprint`,
+                `High-Ticket ${niche} Lab`
+            ];
+            
+            const random = suggestions[Math.floor(Math.random() * suggestions.length)];
+            document.getElementById('input-8').value = random;
+            answers[8] = random;
+            updateButtons();
+        }
+
+        function showPaywall() {
+            document.getElementById('paywall-screen').classList.remove('hidden');
+            document.getElementById('paywall-offer-name').textContent = answers[8] || "Your Custom High-Ticket Offer";
+        }
+
+        function unlockOffer() {
+            alert("🎉 Thank you! In a real version this would redirect to your Whop checkout.\n\nYour offer blueprint is ready to be delivered.");
+            // window.location.href = "https://your-whop-link.com";
+        }
+
+        function exitBuilder() {
+            if (confirm("Exit the offer builder? Progress will be lost.")) {
+                window.location.href = "https://github.com/Ambaza250/highticketforge.git";
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            renderQuestion();
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
