@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offer Builder | High Ticket Forge</title>
+  <meta name="description" content="Build your high-ticket offer in 8 questions with High Ticket Forge." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            navy: {
+              950: '#06101f',
+              900: '#091a33',
+              800: '#10284a',
+              700: '#173862'
+            },
+            forge: {
+              gold: '#FFD700',
+              gold2: '#E7B500',
+              cream: '#FFF8D7'
+            }
+          },
+          boxShadow: {
+            glow: '0 24px 80px rgba(255, 215, 0, 0.16)',
+            premium: '0 24px 80px rgba(6, 16, 31, 0.14)',
+            panel: '0 18px 70px rgba(9, 26, 51, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 50% -16%, rgba(255, 215, 0, 0.16), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8fb 45%, #ffffff 100%);
+      color: #06101f;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .navy-panel {
+      background:
+        linear-gradient(135deg, rgba(255, 215, 0, 0.15), transparent 36%),
+        linear-gradient(180deg, #091a33 0%, #06101f 100%);
+    }
+
+    .soft-grid {
+      background-image:
+        linear-gradient(rgba(9, 26, 51, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(9, 26, 51, 0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    .fade-up {
+      animation: fadeUp 0.75s ease both;
+    }
+
+    .question-enter {
+      animation: questionIn 0.34s ease both;
+    }
+
+    .option-selected {
+      border-color: #E7B500;
+      background: #FFF8D7;
+      box-shadow: 0 16px 45px rgba(231, 181, 0, 0.16);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes questionIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 glass">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-navy-950 text-lg font-black text-forge-gold shadow-glow">H</span>
+        <span class="text-lg font-extrabold tracking-tight text-navy-950">High Ticket Forge</span>
+      </a>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="index.html#home" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Home</a>
+        <a href="index.html#how" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">How it Works</a>
+        <a href="index.html#features" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Features</a>
+        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="text-sm font-semibold text-slate-700 transition hover:text-navy-950">Pricing</a>
+      </div>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg bg-navy-950 px-5 py-3 text-sm font-extrabold text-white shadow-premium transition hover:-translate-y-0.5 hover:bg-navy-800">
+          Get Access
+        </a>
+      </div>
+
+      <button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-navy-950 lg:hidden" aria-label="Open menu">
+        <span class="h-0.5 w-5 bg-current before:block before:h-0.5 before:w-5 before:-translate-y-2 before:bg-current before:content-[''] after:block after:h-0.5 after:w-5 after:translate-y-1.5 after:bg-current after:content-['']"></span>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-5 py-4 lg:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3">
+        <a href="index.html#home" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Home</a>
+        <a href="index.html#how" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">How it Works</a>
+        <a href="index.html#features" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Features</a>
+        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg px-3 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100">Pricing</a>
+        <a href="https://whop.com/checkout/plan_QeI682H0n69zp" class="rounded-lg bg-navy-950 px-4 py-3 text-center text-sm font-extrabold text-white">Get Access</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative overflow-hidden">
+    <div class="soft-grid pointer-events-none absolute inset-x-0 top-0 h-[560px]"></div>
+
+    <section class="relative px-5 pb-16 pt-12 sm:pt-16 lg:px-8">
+      <div class="mx-auto max-w-5xl text-center fade-up">
+        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-forge-gold/40 bg-forge-cream px-4 py-2 text-sm font-extrabold text-navy-950">
+          <span class="h-2 w-2 rounded-full bg-forge-gold"></span>
+          AI-powered offer blueprint builder
+        </div>
+
+        <h1 class="mx-auto max-w-4xl text-4xl font-black tracking-tight text-navy-950 sm:text-5xl lg:text-6xl">
+          Build Your High-Ticket Offer in 8 Questions
+        </h1>
+
+        <p class="mx-auto mt-5 max-w-2xl text-lg font-medium leading-8 text-slate-600 sm:text-xl">
+          Answer these questions and watch the AI build your $497-$5k offer live
+        </p>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-5xl">
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-panel">
+          <div class="border-b border-slate-200 bg-white px-5 py-5 sm:px-7">
+            <div class="mb-3 flex items-center justify-between gap-4">
+              <p id="stepLabel" class="text-sm font-black uppercase tracking-[0.18em] text-navy-950">1/8</p>
+              <p id="stepHint" class="text-sm font-extrabold text-slate-500">Niche</p>
+            </div>
+            <div class="h-2 overflow-hidden rounded-full bg-slate-100">
+              <div id="progressBar" class="h-full w-[12.5%] rounded-full bg-forge-gold transition-all duration-500 ease-out"></div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-[1fr_360px]">
+            <section class="min-h-[500px] p-5 sm:p-8 lg:p-10">
+              <div id="questionShell" class="question-enter">
+                <p id="questionKicker" class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-forge-gold2">Question 1</p>
+                <h2 id="questionTitle" class="text-2xl font-black tracking-tight text-navy-950 sm:text-3xl"></h2>
+                <p id="questionHelp" class="mt-3 max-w-2xl text-base font-medium leading-7 text-slate-600"></p>
+
+                <div id="inputArea" class="mt-8"></div>
+              </div>
+
+              <div class="mt-10 flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <button id="backBtn" type="button" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-extrabold text-navy-950 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40">
+                  Back
+                </button>
+
+                <button id="nextBtn" type="button" disabled class="inline-flex items-center justify-center rounded-xl bg-navy-950 px-7 py-3 text-sm font-extrabold text-white shadow-premium transition hover:-translate-y-0.5 hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0">
+                  Next
+                </button>
