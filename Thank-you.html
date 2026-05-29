@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to High Ticket Forge • Let's Build Your Empire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+        
+        :root {
+            --navy: #0A1428;
+            --gold: #D4AF37;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0A1428 0%, #06101f 100%);
+            color: white;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="tail-container min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-[#0A1428]/90 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-2xl flex items-center justify-center text-2xl">
+                    ⚒️
+                </div>
+                <span class="heading-font text-3xl font-semibold tracking-tight">High Ticket Forge</span>
+            </div>
+            <a href="https://highticketforge.vercel.app" 
+               class="text-sm flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                <i class="fa-solid fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-3 bg-green-500/10 text-green-400 text-sm font-medium px-6 py-2.5 rounded-3xl border border-green-500/20 mb-6">
+                <i class="fa-solid fa-circle-check"></i>
+                PAYMENT SUCCESSFUL
+            </div>
+            
+            <h1 class="heading-font text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Welcome to the Forge, <span class="text-[#D4AF37]">Legend</span>!
+            </h1>
+            
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Thank you for investing in High Ticket Forge.<br>
+                You're now part of an elite group building and selling high-ticket offers with proven systems from over <strong>50 successful launches</strong>.
+            </p>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="glass rounded-3xl p-10 md:p-16 glow-gold max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center text-4xl mb-6">
+                    🔥
+                </div>
+                <h2 class="text-3xl font-semibold mb-4">Your High-Ticket Journey Begins Now</h2>
+                <p class="text-gray-300 text-lg">
+                    You can return to this page anytime to continue building, refining, and launching your high-ticket offers.
+                </p>
+            </div>
+
+            <!-- AI Chat Section -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="px-4 py-1.5 bg-[#D4AF37] text-black text-sm font-semibold rounded-2xl flex items-center gap-2">
+                        <i class="fa-solid fa-robot"></i>
+                        YOUR AI COACH
+                    </div>
+                    <div class="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent"></div>
+                </div>
+                
+                <iframe 
+                    src="https://udify.app/chatbot/Yyg9V53FSJmhVNcA"
+                    style="width: 100%; height: 720px; border-radius: 20px;"
+                    frameborder="0"
+                    allow="microphone">
+                </iframe>
+            </div>
+
+            <div class="text-center text-sm text-gray-400">
+                Pro tip: Bookmark this page for easy access • Your progress is saved in the AI
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="text-center mt-12 text-gray-500 text-sm">
+            Built with 🔥 by <span class="text-[#D4AF37]">High Ticket Forge</span><br>
+            Need support? Reply to your payment confirmation email.
+        </div>
+    </div>
+</body>
+</html>
